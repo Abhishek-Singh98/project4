@@ -1,0 +1,30 @@
+<h1>SignUp</h1>
+
+<%= form_with scope: :trainee, url:trainees_path, local: true do |form| %>
+  <% if @trainee.errors.any? %>
+    <div id="error_explanation">
+      <h2> prohibited this trainee from being saved:</h2>
+      <ul>
+        <% @trainee.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+<div class="actions">
+    <%= form.submit %>
+  </div>
+
+<%= link_to 'Back', trainees_path %>
+<%end%>
